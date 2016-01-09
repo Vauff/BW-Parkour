@@ -1,0 +1,12 @@
+name: BW-Parkour
+main: com.vauff.bwparkour.core.Main
+version: 0.1
+author: Vauff
+commands:
+    bwpabout:
+        description: Shows you plugin information
+        usage: /bwpabout
+permissions:
+    bwparkour.about:
+        description: Gives permission to the /bwpabout command, shows you plugin information
+        default: true
