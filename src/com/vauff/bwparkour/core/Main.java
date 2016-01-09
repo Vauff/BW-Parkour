@@ -23,7 +23,7 @@ public class Main extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new SignListener(this), this);
 		getCommand("bwpabout").setExecutor(new BWPAbout());
 
-		if (getConfig().getInt("dont-ever-change-this") != 2)
+		if (getConfig().getInt("dont-ever-change-this") != 1)
 		{
 			ConsoleCommandSender console = getServer().getConsoleSender();
 			File config = new File(getDataFolder(), "config.yml");
