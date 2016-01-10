@@ -2,3 +2,13 @@
 # If you need help don't hesitate to comment on the project page asking for it
 # And seriously, don't change dont-ever-change-this as it will wipe your configuration
 dont-ever-change-this: 1
+arenas:
+    arenaexample1:
+        region-name: thearena1
+        reward: 500
+    arenaexample2:
+        region-name: thearena2
+        reward: 1000
+    arenaexample3:
+        region-name: thearena3
+        reward: 1500

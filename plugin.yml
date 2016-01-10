@@ -2,6 +2,7 @@ name: BW-Parkour
 main: com.vauff.bwparkour.core.Main
 version: 0.1
 author: Vauff
+depend: [Vault, WorldGuard]
 commands:
     bwpabout:
         description: Shows you plugin information

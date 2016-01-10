@@ -10,6 +10,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.vauff.bwparkour.core.Main;
+import com.vauff.bwparkour.signactions.*;
 
 public class SignListener implements Listener
 {
@@ -29,10 +30,34 @@ public class SignListener implements Listener
 		{
 			Sign sign = (Sign) event.getClickedBlock().getState();
 			String line1 = sign.getLine(0);
+			String line2 = sign.getLine(1);
 
 			if (line1.equalsIgnoreCase("[Parkour]"))
 			{
-				// to do
+				if (line2.equalsIgnoreCase("Enter"))
+				{
+					Enter.enter(player, main, sign);
+				}
+
+				if (line2.equalsIgnoreCase("Exit"))
+				{
+					Exit.exit(player, main, sign);
+				}
+
+				if (line2.equalsIgnoreCase("Finish"))
+				{
+					Finish.finish(player, main, sign);
+				}
+
+				if (line2.equalsIgnoreCase("SetCheckpoint"))
+				{
+					SetCheckpoint.set(player, main, sign);
+				}
+
+				if (line2.equalsIgnoreCase("CheckpointTP"))
+				{
+					CheckpointTP.tp(player, main, sign);
+				}
 			}
 		}
 	}

@@ -21,6 +21,7 @@ public class Main extends JavaPlugin
 	{
 		getConfig().options().copyDefaults(true);
 		saveConfig();
+		new Util(this);
 		getServer().getPluginManager().registerEvents(new SignListener(this), this);
 		getCommand("bwpabout").setExecutor(new BWPAbout());
 		getCommand("bwpreload").setExecutor(new BWPReload(this));
