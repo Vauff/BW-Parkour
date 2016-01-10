@@ -19,7 +19,7 @@ public class SignListener implements Listener
 	{
 		main = plugin;
 	}
-	
+
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerInteract(PlayerInteractEvent event)
 	{
@@ -32,7 +32,7 @@ public class SignListener implements Listener
 
 			if (line1.equalsIgnoreCase("[Parkour]"))
 			{
-				//to do
+				// to do
 			}
 		}
 	}

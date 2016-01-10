@@ -6,7 +6,11 @@ commands:
     bwpabout:
         description: Shows you plugin information
         usage: /bwpabout
+    bwpreload:
+        description: Reloads the configuration file
 permissions:
     bwparkour.about:
         description: Gives permission to the /bwpabout command, shows you plugin information
         default: true
+    bwparkour.reload
+        description: Gives permission to the /bwpreload command, reloads the configuration file
