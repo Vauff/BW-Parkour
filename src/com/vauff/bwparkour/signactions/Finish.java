@@ -19,7 +19,14 @@ public class Finish
 		}
 		else
 		{
-			player.sendMessage(ChatColor.RED + "There is not a parkour arena named " + line3 + "!");
+			if (line3.trim().length() > 0)
+			{
+				player.sendMessage(ChatColor.RED + "There is not a parkour arena named " + line3 + "!");
+			}
+			else
+			{
+				player.sendMessage(ChatColor.RED + "There is not a parkour arena name specified!");
+			}
 		}
 	}
 }

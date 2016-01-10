@@ -1,5 +1,6 @@
 package com.vauff.bwparkour.listeners;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -39,24 +40,29 @@ public class SignListener implements Listener
 					Enter.enter(player, main, sign);
 				}
 
-				if (line2.equalsIgnoreCase("Exit"))
+				else if (line2.equalsIgnoreCase("Exit"))
 				{
 					Exit.exit(player, main, sign);
 				}
 
-				if (line2.equalsIgnoreCase("Finish"))
+				else if (line2.equalsIgnoreCase("Finish"))
 				{
 					Finish.finish(player, main, sign);
 				}
 
-				if (line2.equalsIgnoreCase("SetCheckpoint"))
+				else if (line2.equalsIgnoreCase("SetCheckpoint"))
 				{
 					SetCheckpoint.set(player, main, sign);
 				}
 
-				if (line2.equalsIgnoreCase("CheckpointTP"))
+				else if (line2.equalsIgnoreCase("CheckpointTP"))
 				{
 					CheckpointTP.tp(player, main, sign);
+				}
+
+				else
+				{
+					player.sendMessage(ChatColor.RED + line2 + " is not a valid option");
 				}
 			}
 		}

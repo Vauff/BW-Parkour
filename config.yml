@@ -1,4 +1,5 @@
 # Configuration file for BW-Parkour
+# The region-name option refers to a WorldGuard region that should be created for the parkour arena
 # If you need help don't hesitate to comment on the project page asking for it
 # And seriously, don't change dont-ever-change-this as it will wipe your configuration
 dont-ever-change-this: 1
