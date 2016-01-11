@@ -1,7 +1,11 @@
 package com.vauff.bwparkour.core;
 
+import java.util.HashMap;
+
 public class Util
 {
+	public static HashMap<String, String> arenadata = new HashMap();
+	public static HashMap<String, String> checkpointdata = new HashMap();
 	private static Main main;
 
 	public Util(Main plugin)
