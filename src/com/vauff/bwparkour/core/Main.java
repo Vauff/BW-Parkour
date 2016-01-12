@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.google.common.io.Files;
@@ -13,9 +14,12 @@ import com.vauff.bwparkour.commands.BWPAbout;
 import com.vauff.bwparkour.commands.BWPReload;
 import com.vauff.bwparkour.listeners.SignListener;
 
+import net.milkbowl.vault.economy.Economy;
+
 public class Main extends JavaPlugin
 {
 	public static String version = "0.1";
+	public Economy econ;
 
 	public void onEnable()
 	{
@@ -49,5 +53,19 @@ public class Main extends JavaPlugin
 			config.delete();
 			saveDefaultConfig();
 		}
+		
+		setupEconomy();
+	}
+
+	private boolean setupEconomy()
+	{
+		RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(Economy.class);
+
+		if (economyProvider != null)
+		{
+			econ = economyProvider.getProvider();
+		}
+
+		return (econ != null);
 	}
 }
