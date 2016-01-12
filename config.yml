@@ -1,6 +1,6 @@
 # Configuration file for BW-Parkour
 # The region-name option refers to a WorldGuard region that should be created for the parkour arena
-# The coordinates option refers to where players will be teleported to when entering the arena
+# The coordinates and the checkpoints options take coordinates in the format of x,y,z
 # If you need help don't hesitate to comment on the project page asking for it
 # And seriously, don't change dont-ever-change-this as it will wipe your configuration
 dont-ever-change-this: 1
@@ -10,11 +10,29 @@ arenas:
         region-name: thearena1
         coordinates: 100,80,300
         reward: 500
+        checkpoints:
+            1: 105,80,300
+            2: 110,80,300
+            3: 115,80,300
+            4: 120,80,300
+            5: 125,80,300
+            6: 130,80,300
     arenaexample2:
         region-name: thearena2
         coordinates: 500,80,900
         reward: 1000
+        checkpoints:
+            first: 505,80,900
+            second: 510,80,900
+            third: 515,80,900
+            fourth: 520,80,900
     arenaexample3:
         region-name: thearena3
         coordinates: 1600,80,400
         reward: 1500
+        checkpoints:
+            island: 1605,80,400
+            cloud: 1610,80,400
+            tree: 1615,80,400
+            fence: 1620,80,400
+            road: 1625,80,400
