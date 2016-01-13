@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class Util
 {
-	public static HashMap<String, String> arenadata = new HashMap();
-	public static HashMap<String, String> checkpointdata = new HashMap();
+	public static HashMap<String, String> arenadata = new HashMap<String, String>();
+	public static HashMap<String, String> checkpointdata = new HashMap<String, String>();
 	private static Main main;
 
 	public Util(Main plugin)
@@ -26,5 +26,20 @@ public class Util
 		}
 
 		return arenafound;
+	}
+
+	public static boolean doesCheckPointExist(String arenaname, String checkpointname)
+	{
+		boolean checkpointfound = false;
+		
+		for (String configcheckpointname : main.getConfig().getConfigurationSection("arenas").getConfigurationSection(arenaname).getConfigurationSection("checkpoints").getKeys(false))
+		{
+			if (checkpointname.equalsIgnoreCase(configcheckpointname))
+			{
+				checkpointfound = true;
+			}
+		}
+		
+		return checkpointfound;
 	}
 }
