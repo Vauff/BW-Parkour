@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class Util
 {
-	public static HashMap<String, String> arenadata = new HashMap<String, String>();
-	public static HashMap<String, String> checkpointdata = new HashMap<String, String>();
+	public static HashMap<String, String> arenaData = new HashMap<String, String>();
+	public static HashMap<String, String> checkpointData = new HashMap<String, String>();
 	private static Main main;
 
 	public Util(Main plugin)

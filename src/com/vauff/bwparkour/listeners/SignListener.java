@@ -50,9 +50,9 @@ public class SignListener implements Listener
 					Finish.finish(player, main, sign);
 				}
 
-				else if (line2.equalsIgnoreCase("SetCheckpoint"))
+				else if (line2.equalsIgnoreCase("Checkpoint"))
 				{
-					SetCheckpoint.set(player, main, sign);
+					Checkpoint.set(player, main, sign);
 				}
 
 				else if (line2.equalsIgnoreCase("CheckpointTP"))

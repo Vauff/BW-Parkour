@@ -34,7 +34,7 @@ public class Main extends JavaPlugin
 		{
 			ConsoleCommandSender console = getServer().getConsoleSender();
 			File config = new File(getDataFolder(), "config.yml");
-			File configbackup = new File(getDataFolder(), "config-backup.yml");
+			File configBackup = new File(getDataFolder(), "config-backup.yml");
 
 			console.sendMessage("[BW-Parkour]" + ChatColor.DARK_RED + " IMPORTANT:");
 			console.sendMessage("[BW-Parkour]" + ChatColor.RED + " Your configuration has been reset due to an update that added new configuration options");
@@ -43,7 +43,7 @@ public class Main extends JavaPlugin
 
 			try
 			{
-				Files.copy(config, configbackup);
+				Files.copy(config, configBackup);
 			}
 			catch (IOException e)
 			{

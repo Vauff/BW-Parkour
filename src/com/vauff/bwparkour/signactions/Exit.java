@@ -16,22 +16,23 @@ public class Exit
 
 		if (Util.doesArenaExist(line3))
 		{
-			if (Util.arenadata.containsKey(player.getName()))
+			if (Util.arenaData.containsKey(player.getName()))
 			{
-				if (Util.arenadata.get(player.getName()).equalsIgnoreCase(line3))
+				if (Util.arenaData.get(player.getName()).equalsIgnoreCase(line3))
 				{
 					player.sendMessage(ChatColor.GREEN + "You have exited the parkour arena " + line3 + "! Teleporting you to spawn.");
-					Util.arenadata.remove(player.getName());
+					Util.arenaData.remove(player.getName());
 					player.teleport(Bukkit.getWorld(main.getConfig().getString("world-name")).getSpawnLocation());
+					Util.checkpointData.remove(player.getName());
 				}
 				else
 				{
-					player.sendMessage(ChatColor.RED + "You are not in the parkour arena " + line3 + ", you are in " + Util.arenadata.get(player.getName()) + "!");
+					player.sendMessage(ChatColor.RED + "You are not in the parkour arena " + line3 + ", you are in " + Util.arenaData.get(player.getName()) + "!");
 				}
 			}
 			else
 			{
-				player.sendMessage(ChatColor.RED + "You are not in a parkour arena!");
+				player.sendMessage(ChatColor.RED + "You are not in the parkour arena" + line3 + "!");
 			}
 		}
 		else
