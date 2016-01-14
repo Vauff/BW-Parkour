@@ -1,6 +1,8 @@
 package com.vauff.bwparkour.signactions;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 
@@ -15,7 +17,30 @@ public class CheckpointTP
 
 		if (Util.doesArenaExist(line3))
 		{
-			// do stuff
+			if (Util.arenaData.containsKey(player.getName()))
+			{
+				if (Util.arenaData.get(player.getName()).equalsIgnoreCase(line3))
+				{
+					if (Util.checkpointData.containsKey(player.getName()))
+					{
+						String[] coordinates = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getConfigurationSection("checkpoints").getString(Util.checkpointData.get(player.getName())).split(",");
+						player.teleport(new Location(Bukkit.getWorld(main.getConfig().getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
+						player.sendMessage(ChatColor.GREEN + "You have been teleported to your latest checkpoint named " + Util.checkpointData.get(player.getName()) + "!");
+					}
+					else
+					{
+						player.sendMessage(ChatColor.RED + "You do not currently have a checkpoint set on the arena " + line3 + "!");
+					}
+				}
+				else
+				{
+					player.sendMessage(ChatColor.RED + "You are not in the parkour arena " + line3 + ", you are in " + Util.arenaData.get(player.getName()) + "!");
+				}
+			}
+			else
+			{
+				player.sendMessage(ChatColor.RED + "You are not in the parkour arena" + line3 + "!");
+			}
 		}
 		else
 		{

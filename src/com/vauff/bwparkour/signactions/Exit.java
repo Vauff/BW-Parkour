@@ -20,10 +20,10 @@ public class Exit
 			{
 				if (Util.arenaData.get(player.getName()).equalsIgnoreCase(line3))
 				{
-					player.sendMessage(ChatColor.GREEN + "You have exited the parkour arena " + line3 + "! Teleporting you to spawn.");
 					Util.arenaData.remove(player.getName());
 					player.teleport(Bukkit.getWorld(main.getConfig().getString("world-name")).getSpawnLocation());
 					Util.checkpointData.remove(player.getName());
+					player.sendMessage(ChatColor.GREEN + "You have exited the parkour arena " + line3 + "! Teleporting you to spawn.");
 				}
 				else
 				{
