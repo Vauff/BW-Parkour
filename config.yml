@@ -7,7 +7,6 @@ dont-ever-change-this: 1
 world-name: world
 arenas:
     arenaexample1:
-        region-name: thearena1
         coordinates: 100,80,300
         reward: 500
         checkpoints:
@@ -18,7 +17,6 @@ arenas:
             5: 125,80,300
             6: 130,80,300
     arenaexample2:
-        region-name: thearena2
         coordinates: 500,80,900
         reward: 1000
         checkpoints:
@@ -27,7 +25,6 @@ arenas:
             third: 515,80,900
             fourth: 520,80,900
     arenaexample3:
-        region-name: thearena3
         coordinates: 1600,80,400
         reward: 1500
         checkpoints:

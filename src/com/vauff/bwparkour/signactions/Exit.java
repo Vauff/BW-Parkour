@@ -32,7 +32,7 @@ public class Exit
 			}
 			else
 			{
-				player.sendMessage(ChatColor.RED + "You are not in the parkour arena" + line3 + "!");
+				player.sendMessage(ChatColor.RED + "You are not in the parkour arena " + line3 + "!");
 			}
 		}
 		else

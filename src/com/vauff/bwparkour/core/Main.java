@@ -10,8 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.google.common.io.Files;
 
-import com.vauff.bwparkour.commands.BWPAbout;
-import com.vauff.bwparkour.commands.BWPReload;
+import com.vauff.bwparkour.commands.BWP;
 import com.vauff.bwparkour.listeners.SignListener;
 
 import net.milkbowl.vault.economy.Economy;
@@ -27,8 +26,7 @@ public class Main extends JavaPlugin
 		saveConfig();
 		new Util(this);
 		getServer().getPluginManager().registerEvents(new SignListener(this), this);
-		getCommand("bwpabout").setExecutor(new BWPAbout());
-		getCommand("bwpreload").setExecutor(new BWPReload(this));
+		getCommand("bwp").setExecutor(new BWP(this));
 
 		if (getConfig().getInt("dont-ever-change-this") != 1)
 		{
