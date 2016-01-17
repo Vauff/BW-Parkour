@@ -1,8 +1,13 @@
 # Configuration file for BW-Parkour
+# block-cmds will stop commands being ran in a parkour arena, commands in allowed-cmds will be ignored
+# spawn-world-name should be set to the world you want players to spawn in after exiting the arena
 # The coordinates and the checkpoints options take coordinates in the format of x,y,z
+# The world-name option in each arena should be set to the world that that arena is in
+# Players will get the amount of money specified in the reward option upon finishing the arena, this utilizes Vault
 # If you need help don't hesitate to comment on the project page asking for it
 # And seriously, don't change dont-ever-change-this as it will wipe your configuration
 dont-ever-change-this: 1
+block-cmds: true
 spawn-world-name: world
 arenas:
     arenaexample1:
@@ -35,3 +40,5 @@ arenas:
             tree: 1615,80,400
             fence: 1620,80,400
             road: 1625,80,400
+allowed-cmds:
+    - bwp
