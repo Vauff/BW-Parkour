@@ -19,13 +19,19 @@ public class Enter
 		{
 			if (!Util.arenaData.containsKey(player.getName()))
 			{
+				if (main.getConfig().getBoolean("block-world"))
+				{
+					player.getInventory().clear();
+					player.updateInventory();
+				}
+
 				Util.arenaData.put(player.getName(), line3);
 				String[] coordinates = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getString("coordinates").split(",");
 				player.teleport(new Location(Bukkit.getWorld(main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
 				Util.checkpointData.remove(player.getName());
 				player.sendMessage(ChatColor.GREEN + "You have entered the parkour arena named " + line3 + "!");
 			}
-			
+
 			else if (!Util.arenaData.get(player.getName()).equalsIgnoreCase(line3))
 			{
 				player.sendMessage(ChatColor.RED + "You can't enter this arena because you are already in the parkour arena " + Util.arenaData.get(player.getName()) + "!");

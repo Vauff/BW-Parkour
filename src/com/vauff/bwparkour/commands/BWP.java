@@ -3,10 +3,12 @@ package com.vauff.bwparkour.commands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import com.vauff.bwparkour.core.Main;
 import com.vauff.bwparkour.core.Util;
@@ -83,6 +85,12 @@ public class BWP implements CommandExecutor
 								{
 									if (Util.arenaData.get(sender.getName()).equalsIgnoreCase(args[1]))
 									{
+										if (main.getConfig().getBoolean("block-world"))
+										{
+											player.getInventory().setItem(4, new ItemStack(Material.WATCH, 1));
+											player.updateInventory();
+										}
+
 										Util.arenaData.remove(sender.getName());
 										player.teleport(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
 										Util.checkpointData.remove(sender.getName());
@@ -107,6 +115,12 @@ public class BWP implements CommandExecutor
 						{
 							if (Util.arenaData.containsKey(sender.getName()))
 							{
+								if (main.getConfig().getBoolean("block-world"))
+								{
+									player.getInventory().setItem(4, new ItemStack(Material.WATCH, 1));
+									player.updateInventory();
+								}
+
 								player.teleport(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
 								Util.checkpointData.remove(sender.getName());
 								sender.sendMessage(ChatColor.GREEN + "You have exited the parkour arena " + Util.arenaData.get(sender.getName()) + "! Teleporting you to spawn.");
@@ -135,6 +149,12 @@ public class BWP implements CommandExecutor
 							{
 								if (!Util.arenaData.containsKey(sender.getName()))
 								{
+									if (main.getConfig().getBoolean("block-world"))
+									{
+										player.getInventory().clear();
+										player.updateInventory();
+									}
+
 									Util.arenaData.put(sender.getName(), args[1]);
 									String[] coordinates = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(args[1]).getString("coordinates").split(",");
 									player.teleport(new Location(Bukkit.getWorld(main.getConfig().getConfigurationSection("arenas").getConfigurationSection(args[1]).getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));

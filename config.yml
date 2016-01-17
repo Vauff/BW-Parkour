@@ -1,4 +1,5 @@
 # Configuration file for BW-Parkour
+# The block-world option turns on features hardcoded to the Block World server, this should not be turned on
 # block-cmds will stop commands being ran in a parkour arena, commands in allowed-cmds will be ignored
 # spawn-world-name should be set to the world you want players to spawn in after exiting the arena
 # The coordinates and the checkpoints options take coordinates in the format of x,y,z
@@ -7,6 +8,7 @@
 # If you need help don't hesitate to comment on the project page asking for it
 # And seriously, don't change dont-ever-change-this as it will wipe your configuration
 dont-ever-change-this: 1
+block-world: false
 block-cmds: true
 spawn-world-name: world
 arenas:
