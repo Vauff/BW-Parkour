@@ -84,7 +84,7 @@ public class BWP implements CommandExecutor
 									if (Util.arenaData.get(sender.getName()).equalsIgnoreCase(args[1]))
 									{
 										Util.arenaData.remove(sender.getName());
-										player.teleport(Bukkit.getWorld(main.getConfig().getString("world-name")).getSpawnLocation());
+										player.teleport(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
 										Util.checkpointData.remove(sender.getName());
 										sender.sendMessage(ChatColor.GREEN + "You have exited the parkour arena " + args[1] + "! Teleporting you to spawn.");
 									}
@@ -107,7 +107,7 @@ public class BWP implements CommandExecutor
 						{
 							if (Util.arenaData.containsKey(sender.getName()))
 							{
-								player.teleport(Bukkit.getWorld(main.getConfig().getString("world-name")).getSpawnLocation());
+								player.teleport(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
 								Util.checkpointData.remove(sender.getName());
 								sender.sendMessage(ChatColor.GREEN + "You have exited the parkour arena " + Util.arenaData.get(sender.getName()) + "! Teleporting you to spawn.");
 								Util.arenaData.remove(sender.getName());
@@ -137,7 +137,7 @@ public class BWP implements CommandExecutor
 								{
 									Util.arenaData.put(sender.getName(), args[1]);
 									String[] coordinates = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(args[1]).getString("coordinates").split(",");
-									player.teleport(new Location(Bukkit.getWorld(main.getConfig().getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
+									player.teleport(new Location(Bukkit.getWorld(main.getConfig().getConfigurationSection("arenas").getConfigurationSection(args[1]).getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
 									Util.checkpointData.remove(sender.getName());
 									sender.sendMessage(ChatColor.GREEN + "You have entered the parkour arena named " + args[1] + "!");
 								}
@@ -183,7 +183,7 @@ public class BWP implements CommandExecutor
 										if (Util.checkpointData.containsKey(sender.getName()))
 										{
 											String[] coordinates = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(args[1]).getConfigurationSection("checkpoints").getString(Util.checkpointData.get(player.getName())).split(",");
-											player.teleport(new Location(Bukkit.getWorld(main.getConfig().getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
+											player.teleport(new Location(Bukkit.getWorld(main.getConfig().getConfigurationSection("arenas").getConfigurationSection(args[1]).getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
 											sender.sendMessage(ChatColor.GREEN + "You have been teleported to your latest checkpoint named " + Util.checkpointData.get(sender.getName()) + "!");
 										}
 										else
@@ -213,7 +213,7 @@ public class BWP implements CommandExecutor
 								if (Util.checkpointData.containsKey(sender.getName()))
 								{
 									String[] coordinates = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(Util.arenaData.get(player.getName())).getConfigurationSection("checkpoints").getString(Util.checkpointData.get(player.getName())).split(",");
-									player.teleport(new Location(Bukkit.getWorld(main.getConfig().getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
+									player.teleport(new Location(Bukkit.getWorld(main.getConfig().getConfigurationSection("arenas").getConfigurationSection(Util.arenaData.get(player.getName())).getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
 									sender.sendMessage(ChatColor.GREEN + "You have been teleported to your latest checkpoint named " + Util.checkpointData.get(sender.getName()) + "!");
 								}
 								else

@@ -94,7 +94,6 @@ public class SignClickListener implements Listener
 						player.sendMessage(ChatColor.DARK_RED + "You do not have access to that action.");
 					}
 				}
-
 				else
 				{
 					player.sendMessage(ChatColor.RED + line2 + " is not a valid option");

@@ -21,8 +21,9 @@ public class Finish
 				if (Util.arenaData.get(player.getName()).equalsIgnoreCase(line3))
 				{
 					int reward = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getInt("reward");
+					
 					Util.arenaData.remove(player.getName());
-					player.teleport(Bukkit.getWorld(main.getConfig().getString("world-name")).getSpawnLocation());
+					player.teleport(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
 					main.econ.depositPlayer(player, reward);
 					Util.checkpointData.remove(player.getName());
 					player.sendMessage(ChatColor.GREEN + "You have finished the parkour arena " + line3 + " and received $" + reward + "! Teleporting you to spawn.");

@@ -16,10 +16,8 @@ public class SignChangeListener implements Listener
 
 		if (event.getLine(0).equalsIgnoreCase("[Parkour]") && !player.hasPermission("bwparkour.place"))
 		{
-			System.out.println(1);
 			event.getBlock().breakNaturally();
 			player.sendMessage(ChatColor.DARK_RED + "You do not have access to place BW-Parkour signs.");
 		}
-
 	}
 }

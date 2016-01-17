@@ -53,7 +53,7 @@ public class Main extends JavaPlugin
 			config.delete();
 			saveDefaultConfig();
 		}
-		
+
 		setupEconomy();
 	}
 
