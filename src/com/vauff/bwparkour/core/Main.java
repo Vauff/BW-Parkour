@@ -12,7 +12,7 @@ import com.google.common.io.Files;
 
 import com.vauff.bwparkour.commands.BWP;
 import com.vauff.bwparkour.listeners.SignClickListener;
-import com.vauff.bwparkour.listeners.SignPlaceListener;
+import com.vauff.bwparkour.listeners.SignChangeListener;
 
 import net.milkbowl.vault.economy.Economy;
 
@@ -27,7 +27,7 @@ public class Main extends JavaPlugin
 		saveConfig();
 		new Util(this);
 		getServer().getPluginManager().registerEvents(new SignClickListener(this), this);
-		getServer().getPluginManager().registerEvents(new SignPlaceListener(), this);
+		getServer().getPluginManager().registerEvents(new SignChangeListener(), this);
 		getCommand("bwp").setExecutor(new BWP(this));
 
 		if (getConfig().getInt("dont-ever-change-this") != 1)
