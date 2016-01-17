@@ -37,27 +37,62 @@ public class SignListener implements Listener
 			{
 				if (line2.equalsIgnoreCase("Enter"))
 				{
-					Enter.enter(player, main, sign);
+					if (player.hasPermission("bwparkour.enter"))
+					{
+						Enter.enter(player, main, sign);
+					}
+					else
+					{
+						player.sendMessage(ChatColor.DARK_RED + "You do not have access to that action.");
+					}
 				}
 
 				else if (line2.equalsIgnoreCase("Exit"))
 				{
-					Exit.exit(player, main, sign);
+					if (player.hasPermission("bwparkour.exit"))
+					{
+						Exit.exit(player, main, sign);
+					}
+					else
+					{
+						player.sendMessage(ChatColor.DARK_RED + "You do not have access to that action.");
+					}
 				}
 
 				else if (line2.equalsIgnoreCase("Finish"))
 				{
-					Finish.finish(player, main, sign);
+					if (player.hasPermission("bwparkour.finish"))
+					{
+						Finish.finish(player, main, sign);
+					}
+					else
+					{
+						player.sendMessage(ChatColor.DARK_RED + "You do not have access to that action.");
+					}
 				}
 
 				else if (line2.equalsIgnoreCase("Checkpoint"))
 				{
-					Checkpoint.set(player, main, sign);
+					if (player.hasPermission("bwparkour.checkpoint"))
+					{
+						Checkpoint.set(player, main, sign);
+					}
+					else
+					{
+						player.sendMessage(ChatColor.DARK_RED + "You do not have access to that action.");
+					}
 				}
 
 				else if (line2.equalsIgnoreCase("CheckpointTP"))
 				{
-					CheckpointTP.tp(player, main, sign);
+					if (player.hasPermission("bwparkour.tp"))
+					{
+						CheckpointTP.tp(player, main, sign);
+					}
+					else
+					{
+						player.sendMessage(ChatColor.DARK_RED + "You do not have access to that action.");
+					}
 				}
 
 				else
