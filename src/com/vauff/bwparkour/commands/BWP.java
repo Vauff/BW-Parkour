@@ -218,7 +218,7 @@ public class BWP implements CommandExecutor
 								}
 								else
 								{
-									sender.sendMessage(ChatColor.RED + "You do not currently have a checkpoint set on the arena " + args[1] + "!");
+									sender.sendMessage(ChatColor.RED + "You do not currently have a checkpoint set on the arena " + Util.arenaData.get(player.getName()) + "!");
 								}
 							}
 							else
