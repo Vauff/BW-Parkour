@@ -11,12 +11,15 @@ permissions:
     bwparkour.about:
         description: Gives permission to the about command, shows you plugin information
         default: true
-    bwparkour.reload:
-        description: Gives permission to the reload command, reloads the configuration file
-        default: op
     bwparkour.help:
         description: Gives permission to the help command, gives you help with different command options
         default: true
+    bwparkour.reload:
+        description: Gives permission to the reload command, reloads the configuration file
+        default: op
+    bwparkour.place:
+        description: Gives permission to place BW-Parkour signs, used for arena interactions
+        default: op
     bwparkour.exit:
         description: Gives permission to the exit command and sign, allows you to leave a parkour arena
         default: true

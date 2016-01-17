@@ -11,7 +11,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.google.common.io.Files;
 
 import com.vauff.bwparkour.commands.BWP;
-import com.vauff.bwparkour.listeners.SignListener;
+import com.vauff.bwparkour.listeners.SignClickListener;
+import com.vauff.bwparkour.listeners.SignPlaceListener;
 
 import net.milkbowl.vault.economy.Economy;
 
@@ -25,7 +26,8 @@ public class Main extends JavaPlugin
 		getConfig().options().copyDefaults(true);
 		saveConfig();
 		new Util(this);
-		getServer().getPluginManager().registerEvents(new SignListener(this), this);
+		getServer().getPluginManager().registerEvents(new SignClickListener(this), this);
+		getServer().getPluginManager().registerEvents(new SignPlaceListener(), this);
 		getCommand("bwp").setExecutor(new BWP(this));
 
 		if (getConfig().getInt("dont-ever-change-this") != 1)

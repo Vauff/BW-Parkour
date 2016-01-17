@@ -13,11 +13,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import com.vauff.bwparkour.core.Main;
 import com.vauff.bwparkour.signactions.*;
 
-public class SignListener implements Listener
+public class SignClickListener implements Listener
 {
 	private Main main;
 
-	public SignListener(Main plugin)
+	public SignClickListener(Main plugin)
 	{
 		main = plugin;
 	}
