@@ -17,15 +17,15 @@ A Bukkit/Spigot parkour plugin designed for the Block World Server. It isn't har
 #Sign Options
 All signs should have "[Parkour]" on the first line. What should be on the rest is as follows.
 
-Checkpoint <arenaname> <checkpointname>
+Checkpoint \<arenaname> \<checkpointname>
 
-CheckpointTP <arenaname>
+CheckpointTP \<arenaname>
 
-Enter <arenaname>
+Enter \<arenaname>
 
-Exit <arenaname>
+Exit \<arenaname>
 
-Finish <arenaname>
+Finish \<arenaname>
 
 #Permissions
 bwparkour.about - Gives permission to the about command, shows you plugin information
