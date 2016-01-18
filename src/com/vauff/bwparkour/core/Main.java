@@ -17,7 +17,7 @@ import net.milkbowl.vault.economy.Economy;
 
 public class Main extends JavaPlugin
 {
-	public static String version = "0.1";
+	public static String version = "1.0";
 	public Economy econ;
 
 	public void onEnable()
