@@ -63,7 +63,7 @@ public class BWP implements CommandExecutor
 						sender.sendMessage(ChatColor.AQUA + "/bwp help: " + ChatColor.GOLD + "Gives you help with different command options");
 						sender.sendMessage(ChatColor.AQUA + "/bwp exit: " + ChatColor.GOLD + "Allows you to leave a parkour arena");
 						sender.sendMessage(ChatColor.AQUA + "/bwp enter: " + ChatColor.GOLD + "Allows you to enter a parkour arena");
-						sender.sendMessage(ChatColor.AQUA + "/bwp tp: " + ChatColor.GOLD + "Shows you plugin information");
+						sender.sendMessage(ChatColor.AQUA + "/bwp tp: " + ChatColor.GOLD + "Lets you tp to your last checkpoint");
 
 					}
 					else
