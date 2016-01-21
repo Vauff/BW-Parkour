@@ -17,7 +17,7 @@ import net.milkbowl.vault.economy.Economy;
 
 public class Main extends JavaPlugin
 {
-	public static String version = "1.0";
+	public static String version = "1.1-dev";
 	public Economy econ;
 
 	public void onEnable()
@@ -26,6 +26,7 @@ public class Main extends JavaPlugin
 		saveConfig();
 		new Util(this);
 		getServer().getPluginManager().registerEvents(new CommandListener(this), this);
+		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
 		getServer().getPluginManager().registerEvents(new SignClickListener(this), this);
 		getServer().getPluginManager().registerEvents(new SignChangeListener(), this);
 		getCommand("bwp").setExecutor(new BWP(this));
