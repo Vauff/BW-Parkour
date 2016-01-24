@@ -20,6 +20,9 @@ permissions:
     bwparkour.place:
         description: Gives permission to place BW-Parkour signs, used for arena interactions
         default: op
+    bwparkour.bypasscmdblock:
+        description: Gives permission to bypass the command blocking, for when in parkour arenas
+        default: op
     bwparkour.exit:
         description: Gives permission to the exit command and sign, allows you to leave a parkour arena
         default: true

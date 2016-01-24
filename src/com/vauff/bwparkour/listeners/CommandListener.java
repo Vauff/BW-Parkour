@@ -27,7 +27,7 @@ public class CommandListener implements Listener
 			Player player = event.getPlayer();
 			boolean isCmdBlocked = true;
 
-			if (Util.arenaData.containsKey(player.getName()))
+			if (Util.arenaData.containsKey(player.getName()) && !player.hasPermission("bwparkour.bypasscmdblock"))
 			{
 				for (String cmd : main.getConfig().getStringList("allowed-cmds"))
 				{

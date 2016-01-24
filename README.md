@@ -36,6 +36,8 @@ bwparkour.reload - Gives permission to the reload command, reloads the configura
 
 bwparkour.place - Gives permission to place BW-Parkour signs, used for arena interactions
 
+bwparkour.bypasscmdblock - Gives permission to bypass the command blocking, for when in parkour arenas
+
 bwparkour.exit - Gives permission to the exit command and sign, allows you to leave a parkour arena
 
 bwparkour.enter - Gives permission to the enter command and sign, allows you to enter a parkour arena
