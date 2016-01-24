@@ -2,6 +2,7 @@ package com.vauff.bwparkour.signactions;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -23,6 +24,7 @@ public class Finish
 				if (Util.arenaData.get(player.getName()).equalsIgnoreCase(line3))
 				{
 					int reward = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getInt("reward");
+					Location spawn = Util.getCenter(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
 
 					if (main.getConfig().getBoolean("block-world"))
 					{
@@ -31,7 +33,7 @@ public class Finish
 					}
 
 					Util.arenaData.remove(player.getName());
-					player.teleport(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
+					player.teleport(spawn);
 					main.econ.depositPlayer(player, reward);
 					Util.checkpointData.remove(player.getName());
 					player.sendMessage(ChatColor.GREEN + "You have finished the parkour arena " + line3 + " and received $" + reward + "! Teleporting you to spawn.");

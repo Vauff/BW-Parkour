@@ -2,6 +2,7 @@ package com.vauff.bwparkour.signactions;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -22,6 +23,8 @@ public class Exit
 			{
 				if (Util.arenaData.get(player.getName()).equalsIgnoreCase(line3))
 				{
+					Location spawn = Util.getCenter(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
+					
 					if (main.getConfig().getBoolean("block-world"))
 					{
 						player.getInventory().setItem(4, new ItemStack(Material.WATCH, 1));
@@ -29,7 +32,7 @@ public class Exit
 					}
 
 					Util.arenaData.remove(player.getName());
-					player.teleport(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
+					player.teleport(spawn);
 					Util.checkpointData.remove(player.getName());
 					player.sendMessage(ChatColor.GREEN + "You have exited the parkour arena " + line3 + "! Teleporting you to spawn.");
 				}

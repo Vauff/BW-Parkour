@@ -24,7 +24,9 @@ public class CheckpointTP
 					if (Util.checkpointData.containsKey(player.getName()))
 					{
 						String[] coordinates = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getConfigurationSection("checkpoints").getString(Util.checkpointData.get(player.getName())).split(",");
-						player.teleport(new Location(Bukkit.getWorld(main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
+						Location arena = Util.getCenter(new Location(Bukkit.getWorld(main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
+
+						player.teleport(arena);
 						player.sendMessage(ChatColor.GREEN + "You have been teleported to your latest checkpoint named " + Util.checkpointData.get(player.getName()) + "!");
 					}
 					else
