@@ -12,7 +12,7 @@ A Bukkit/Spigot parkour plugin designed for the Block World Server. It isn't har
 
 /bwp enter \<arenaname> - Allows you to enter a parkour arena
 
-/bwp tp - Shows you plugin information
+/bwp tp - Lets you tp to your last checkpoint
 
 #Sign Options
 All signs should have "[Parkour]" on the first line. What should be on the rest is as follows.
