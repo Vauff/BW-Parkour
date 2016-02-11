@@ -1,4 +1,4 @@
-package com.vauff.bwparkour.core;
+package com.vauff.icparkour.core;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,14 +10,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.google.common.io.Files;
 
-import com.vauff.bwparkour.commands.BWP;
-import com.vauff.bwparkour.listeners.*;
+import com.vauff.icparkour.commands.ICP;
+import com.vauff.icparkour.listeners.*;
 
 import net.milkbowl.vault.economy.Economy;
 
 public class Main extends JavaPlugin
 {
-	public static String version = "1.1";
+	public static String version = "1.1.1";
 	public Economy econ;
 
 	public void onEnable()
@@ -29,7 +29,7 @@ public class Main extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
 		getServer().getPluginManager().registerEvents(new SignClickListener(this), this);
 		getServer().getPluginManager().registerEvents(new SignChangeListener(), this);
-		getCommand("bwp").setExecutor(new BWP(this));
+		getCommand("icp").setExecutor(new ICP(this));
 
 		if (getConfig().getInt("dont-ever-change-this") != 1)
 		{
@@ -37,10 +37,10 @@ public class Main extends JavaPlugin
 			File config = new File(getDataFolder(), "config.yml");
 			File configBackup = new File(getDataFolder(), "config-backup.yml");
 
-			console.sendMessage("[BW-Parkour]" + ChatColor.DARK_RED + " IMPORTANT:");
-			console.sendMessage("[BW-Parkour]" + ChatColor.RED + " Your configuration has been reset due to an update that added new configuration options");
-			console.sendMessage("[BW-Parkour]" + ChatColor.RED + " Your old configuration file is stored in config-backup.yml");
-			console.sendMessage("[BW-Parkour]" + ChatColor.RED + " You can use this file as reference to get back your config to how it was before");
+			console.sendMessage("[IC-Parkour]" + ChatColor.DARK_RED + " IMPORTANT:");
+			console.sendMessage("[IC-Parkour]" + ChatColor.RED + " Your configuration has been reset due to an update that added new configuration options");
+			console.sendMessage("[IC-Parkour]" + ChatColor.RED + " Your old configuration file is stored in config-backup.yml");
+			console.sendMessage("[IC-Parkour]" + ChatColor.RED + " You can use this file as reference to get back your config to how it was before");
 
 			try
 			{

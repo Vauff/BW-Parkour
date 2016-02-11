@@ -1,4 +1,4 @@
-package com.vauff.bwparkour.listeners;
+package com.vauff.icparkour.listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -7,8 +7,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-import com.vauff.bwparkour.core.Main;
-import com.vauff.bwparkour.core.Util;
+import com.vauff.icparkour.core.Main;
+import com.vauff.icparkour.core.Util;
 
 public class CommandListener implements Listener
 {
@@ -27,7 +27,7 @@ public class CommandListener implements Listener
 			Player player = event.getPlayer();
 			boolean isCmdBlocked = true;
 
-			if (Util.arenaData.containsKey(player.getName()) && !player.hasPermission("bwparkour.bypasscmdblock"))
+			if (Util.arenaData.containsKey(player.getName()) && !player.hasPermission("icparkour.bypasscmdblock"))
 			{
 				for (String cmd : main.getConfig().getStringList("allowed-cmds"))
 				{

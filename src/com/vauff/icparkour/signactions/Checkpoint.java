@@ -1,11 +1,11 @@
-package com.vauff.bwparkour.signactions;
+package com.vauff.icparkour.signactions;
 
 import org.bukkit.ChatColor;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 
-import com.vauff.bwparkour.core.Main;
-import com.vauff.bwparkour.core.Util;
+import com.vauff.icparkour.core.Main;
+import com.vauff.icparkour.core.Util;
 
 public class Checkpoint
 {

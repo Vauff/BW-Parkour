@@ -1,4 +1,4 @@
-package com.vauff.bwparkour.commands;
+package com.vauff.icparkour.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -10,31 +10,31 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.vauff.bwparkour.core.Main;
-import com.vauff.bwparkour.core.Util;
+import com.vauff.icparkour.core.Main;
+import com.vauff.icparkour.core.Util;
 
-public class BWP implements CommandExecutor
+public class ICP implements CommandExecutor
 {
 	private Main main;
 
-	public BWP(Main plugin)
+	public ICP(Main plugin)
 	{
 		main = plugin;
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandlabel, String[] args)
 	{
-		if (commandlabel.equalsIgnoreCase("bwp"))
+		if (commandlabel.equalsIgnoreCase("icp"))
 		{
 			if (args.length > 0)
 			{
 				switch (args[0])
 				{
 				case "about":
-					if (sender.hasPermission("bwparkour.about"))
+					if (sender.hasPermission("icparkour.about"))
 					{
-						sender.sendMessage(ChatColor.GREEN + "You are using BW-Parkour " + ChatColor.RED + "v" + Main.version + ChatColor.GREEN + " created by Vauff");
-						sender.sendMessage(ChatColor.AQUA + "https://github.com/Vauff/BW-Parkour");
+						sender.sendMessage(ChatColor.GREEN + "You are using IC-Parkour " + ChatColor.RED + "v" + Main.version + ChatColor.GREEN + " created by Vauff");
+						sender.sendMessage(ChatColor.AQUA + "https://github.com/Vauff/IC-Parkour");
 					}
 					else
 					{
@@ -43,10 +43,10 @@ public class BWP implements CommandExecutor
 
 					break;
 				case "reload":
-					if (sender.hasPermission("bwparkour.reload"))
+					if (sender.hasPermission("icparkour.reload"))
 					{
 						main.reloadConfig();
-						sender.sendMessage(ChatColor.AQUA + "BW-Parkour configuration file reloaded successfully!");
+						sender.sendMessage(ChatColor.AQUA + "IC-Parkour configuration file reloaded successfully!");
 					}
 					else
 					{
@@ -55,15 +55,15 @@ public class BWP implements CommandExecutor
 
 					break;
 				case "help":
-					if (sender.hasPermission("bwparkour.help"))
+					if (sender.hasPermission("icparkour.help"))
 					{
-						sender.sendMessage(ChatColor.GREEN + "*** BW-Parkour Help ***");
-						sender.sendMessage(ChatColor.AQUA + "/bwp about: " + ChatColor.GOLD + "Shows you plugin information");
-						sender.sendMessage(ChatColor.AQUA + "/bwp reload: " + ChatColor.GOLD + "Reloads the configuration file");
-						sender.sendMessage(ChatColor.AQUA + "/bwp help: " + ChatColor.GOLD + "Gives you help with different command options");
-						sender.sendMessage(ChatColor.AQUA + "/bwp exit: " + ChatColor.GOLD + "Allows you to leave a parkour arena");
-						sender.sendMessage(ChatColor.AQUA + "/bwp enter: " + ChatColor.GOLD + "Allows you to enter a parkour arena");
-						sender.sendMessage(ChatColor.AQUA + "/bwp tp: " + ChatColor.GOLD + "Lets you tp to your last checkpoint");
+						sender.sendMessage(ChatColor.GREEN + "*** IC-Parkour Help ***");
+						sender.sendMessage(ChatColor.AQUA + "/icp about: " + ChatColor.GOLD + "Shows you plugin information");
+						sender.sendMessage(ChatColor.AQUA + "/icp reload: " + ChatColor.GOLD + "Reloads the configuration file");
+						sender.sendMessage(ChatColor.AQUA + "/icp help: " + ChatColor.GOLD + "Gives you help with different command options");
+						sender.sendMessage(ChatColor.AQUA + "/icp exit: " + ChatColor.GOLD + "Allows you to leave a parkour arena");
+						sender.sendMessage(ChatColor.AQUA + "/icp enter: " + ChatColor.GOLD + "Allows you to enter a parkour arena");
+						sender.sendMessage(ChatColor.AQUA + "/icp tp: " + ChatColor.GOLD + "Lets you tp to your last checkpoint");
 
 					}
 					else
@@ -73,7 +73,7 @@ public class BWP implements CommandExecutor
 
 					break;
 				case "exit":
-					if (sender.hasPermission("bwparkour.exit"))
+					if (sender.hasPermission("icparkour.exit"))
 					{
 						Player player = (Player) sender;
 
@@ -86,13 +86,6 @@ public class BWP implements CommandExecutor
 									if (Util.arenaData.get(sender.getName()).equalsIgnoreCase(args[1]))
 									{
 										Location spawn = Util.getCenter(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
-
-										if (main.getConfig().getBoolean("block-world"))
-										{
-											player.getInventory().setItem(4, new ItemStack(Material.WATCH, 1));
-											player.updateInventory();
-										}
-
 										Util.arenaData.remove(sender.getName());
 										player.teleport(spawn);
 										Util.checkpointData.remove(sender.getName());
@@ -118,13 +111,6 @@ public class BWP implements CommandExecutor
 							if (Util.arenaData.containsKey(sender.getName()))
 							{
 								Location spawn = Util.getCenter(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
-
-								if (main.getConfig().getBoolean("block-world"))
-								{
-									player.getInventory().setItem(4, new ItemStack(Material.WATCH, 1));
-									player.updateInventory();
-								}
-
 								player.teleport(spawn);
 								Util.checkpointData.remove(sender.getName());
 								sender.sendMessage(ChatColor.GREEN + "You have exited the parkour arena " + Util.arenaData.get(sender.getName()) + "! Teleporting you to spawn.");
@@ -143,7 +129,7 @@ public class BWP implements CommandExecutor
 
 					break;
 				case "enter":
-					if (sender.hasPermission("bwparkour.enter"))
+					if (sender.hasPermission("icparkour.enter"))
 					{
 						Player player = (Player) sender;
 
@@ -155,13 +141,6 @@ public class BWP implements CommandExecutor
 								{
 									String[] coordinates = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(args[1]).getString("coordinates").split(",");
 									Location arena = Util.getCenter(new Location(Bukkit.getWorld(main.getConfig().getConfigurationSection("arenas").getConfigurationSection(args[1]).getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
-
-									if (main.getConfig().getBoolean("block-world"))
-									{
-										player.getInventory().clear();
-										player.updateInventory();
-									}
-
 									Util.arenaData.put(sender.getName(), args[1]);
 									player.teleport(arena);
 									Util.checkpointData.remove(sender.getName());
@@ -184,7 +163,7 @@ public class BWP implements CommandExecutor
 						}
 						else
 						{
-							player.sendMessage(ChatColor.RED + "You are missing a required argument! /bwp enter <arenaname>");
+							player.sendMessage(ChatColor.RED + "You are missing a required argument! /icp enter <arenaname>");
 						}
 					}
 					else
@@ -194,7 +173,7 @@ public class BWP implements CommandExecutor
 
 					break;
 				case "tp":
-					if (sender.hasPermission("bwparkour.tp"))
+					if (sender.hasPermission("icparkour.tp"))
 					{
 						Player player = (Player) sender;
 
@@ -264,14 +243,14 @@ public class BWP implements CommandExecutor
 
 					break;
 				default:
-					sender.sendMessage(ChatColor.RED + args[0] + " wasn't recognized as a valid option, please see /bwp help");
+					sender.sendMessage(ChatColor.RED + args[0] + " wasn't recognized as a valid option, please see /icp help");
 
 					break;
 				}
 			}
 			else
 			{
-				sender.sendMessage(ChatColor.RED + "Please give an option with /bwp! e.g. /bwp help");
+				sender.sendMessage(ChatColor.RED + "Please give an option with /icp! e.g. /icp help");
 			}
 		}
 		return true;

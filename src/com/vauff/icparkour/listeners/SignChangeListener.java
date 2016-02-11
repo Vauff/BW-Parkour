@@ -1,4 +1,4 @@
-package com.vauff.bwparkour.listeners;
+package com.vauff.icparkour.listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -14,10 +14,10 @@ public class SignChangeListener implements Listener
 	{
 		Player player = event.getPlayer();
 
-		if (event.getLine(0).equalsIgnoreCase("[Parkour]") && !player.hasPermission("bwparkour.place"))
+		if (event.getLine(0).equalsIgnoreCase("[Parkour]") && !player.hasPermission("icparkour.place"))
 		{
 			event.getBlock().breakNaturally();
-			player.sendMessage(ChatColor.DARK_RED + "You do not have access to place BW-Parkour signs.");
+			player.sendMessage(ChatColor.DARK_RED + "You do not have access to place IC-Parkour signs.");
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package com.vauff.bwparkour.listeners;
+package com.vauff.icparkour.listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -10,8 +10,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.vauff.bwparkour.core.Main;
-import com.vauff.bwparkour.signactions.*;
+import com.vauff.icparkour.core.Main;
+import com.vauff.icparkour.signactions.*;
 
 public class SignClickListener implements Listener
 {
@@ -37,7 +37,7 @@ public class SignClickListener implements Listener
 			{
 				if (line2.equalsIgnoreCase("Enter"))
 				{
-					if (player.hasPermission("bwparkour.enter"))
+					if (player.hasPermission("icparkour.enter"))
 					{
 						Enter.enter(player, main, sign);
 					}
@@ -49,7 +49,7 @@ public class SignClickListener implements Listener
 
 				else if (line2.equalsIgnoreCase("Exit"))
 				{
-					if (player.hasPermission("bwparkour.exit"))
+					if (player.hasPermission("icparkour.exit"))
 					{
 						Exit.exit(player, main, sign);
 					}
@@ -61,7 +61,7 @@ public class SignClickListener implements Listener
 
 				else if (line2.equalsIgnoreCase("Finish"))
 				{
-					if (player.hasPermission("bwparkour.finish"))
+					if (player.hasPermission("icparkour.finish"))
 					{
 						Finish.finish(player, main, sign);
 					}
@@ -73,7 +73,7 @@ public class SignClickListener implements Listener
 
 				else if (line2.equalsIgnoreCase("Checkpoint"))
 				{
-					if (player.hasPermission("bwparkour.checkpoint"))
+					if (player.hasPermission("icparkour.checkpoint"))
 					{
 						Checkpoint.set(player, main, sign);
 					}
@@ -85,7 +85,7 @@ public class SignClickListener implements Listener
 
 				else if (line2.equalsIgnoreCase("CheckpointTP"))
 				{
-					if (player.hasPermission("bwparkour.tp"))
+					if (player.hasPermission("icparkour.tp"))
 					{
 						CheckpointTP.tp(player, main, sign);
 					}

@@ -1,4 +1,4 @@
-package com.vauff.bwparkour.signactions;
+package com.vauff.icparkour.signactions;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -6,8 +6,8 @@ import org.bukkit.Location;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 
-import com.vauff.bwparkour.core.Main;
-import com.vauff.bwparkour.core.Util;
+import com.vauff.icparkour.core.Main;
+import com.vauff.icparkour.core.Util;
 
 public class Enter
 {
@@ -21,13 +21,6 @@ public class Enter
 			{
 				String[] coordinates = main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getString("coordinates").split(",");
 				Location arena = Util.getCenter(new Location(Bukkit.getWorld(main.getConfig().getConfigurationSection("arenas").getConfigurationSection(line3).getString("world-name")), Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Integer.parseInt(coordinates[2])));
-				
-				if (main.getConfig().getBoolean("block-world"))
-				{
-					player.getInventory().clear();
-					player.updateInventory();
-				}
-
 				Util.arenaData.put(player.getName(), line3);
 				player.teleport(arena);
 				Util.checkpointData.remove(player.getName());

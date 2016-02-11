@@ -1,4 +1,4 @@
-package com.vauff.bwparkour.core;
+package com.vauff.icparkour.core;
 
 import java.util.HashMap;
 

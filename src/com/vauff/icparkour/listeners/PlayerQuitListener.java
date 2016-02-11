@@ -1,11 +1,11 @@
-package com.vauff.bwparkour.listeners;
+package com.vauff.icparkour.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import com.vauff.bwparkour.core.Util;
+import com.vauff.icparkour.core.Util;
 
 public class PlayerQuitListener implements Listener
 {
