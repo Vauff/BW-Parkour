@@ -1,6 +1,6 @@
 name: IC-Parkour
 main: com.vauff.icparkour.core.Main
-version: 1.1.1
+version: 1.1.2
 author: Vauff
 depend: [Vault]
 commands:
