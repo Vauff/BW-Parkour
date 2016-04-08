@@ -20,6 +20,7 @@ public class ICP implements CommandExecutor
 		main = plugin;
 	}
 
+	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandlabel, String[] args)
 	{
 		if (commandlabel.equalsIgnoreCase("icp"))
@@ -83,7 +84,7 @@ public class ICP implements CommandExecutor
 								{
 									if (Util.arenaData.get(sender.getName()).equalsIgnoreCase(args[1]))
 									{
-										Location spawn = Util.getCenter(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
+										Location spawn = Util.getIntelligentSpawnLocation(Util.getCenter(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation()));
 										Util.arenaData.remove(sender.getName());
 										player.teleport(spawn);
 										Util.checkpointData.remove(sender.getName());
@@ -108,7 +109,7 @@ public class ICP implements CommandExecutor
 						{
 							if (Util.arenaData.containsKey(sender.getName()))
 							{
-								Location spawn = Util.getCenter(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation());
+								Location spawn = Util.getIntelligentSpawnLocation(Util.getCenter(Bukkit.getWorld(main.getConfig().getString("spawn-world-name")).getSpawnLocation()));
 								player.teleport(spawn);
 								Util.checkpointData.remove(sender.getName());
 								sender.sendMessage(ChatColor.GREEN + "You have exited the parkour arena " + Util.arenaData.get(sender.getName()) + "! Teleporting you to spawn.");
