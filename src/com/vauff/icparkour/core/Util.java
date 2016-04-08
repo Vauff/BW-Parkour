@@ -3,6 +3,7 @@ package com.vauff.icparkour.core;
 import java.util.HashMap;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 
 public class Util
 {
@@ -55,5 +56,26 @@ public class Util
 		double d = i;
 		d = d < 0 ? d - .5 : d + .5;
 		return d;
+	}
+	
+	public static Location getIntelligentSpawnLocation(Location initialTry)
+	{
+		Location oneUp = new Location(initialTry.getWorld(), initialTry.getX(), initialTry.getY() + 1, initialTry.getZ());
+		
+		if(initialTry.getBlock().getType() != Material.AIR)
+		{
+			return getIntelligentSpawnLocation(oneUp);
+		}
+		else
+		{
+			if(oneUp.getBlock().getType() != Material.AIR)
+			{
+				return getIntelligentSpawnLocation(new Location(oneUp.getWorld(), oneUp.getX(), oneUp.getY() + 1, oneUp.getZ()));
+			}
+			else
+			{
+				return initialTry;
+			}
+		}
 	}
 }
