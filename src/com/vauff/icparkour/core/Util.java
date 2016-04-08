@@ -63,13 +63,19 @@ public class Util
 		Location oneUp = new Location(initialTry.getWorld(), initialTry.getX(), initialTry.getY() + 1, initialTry.getZ());
 		
 		if(initialTry.getBlock().getType() != Material.AIR)
+		{
 			return getIntelligentSpawnLocation(oneUp);
+		}
 		else
 		{
 			if(oneUp.getBlock().getType() != Material.AIR)
+			{
 				return getIntelligentSpawnLocation(new Location(oneUp.getWorld(), oneUp.getX(), oneUp.getY() + 1, oneUp.getZ()));
+			}
 			else
+			{
 				return initialTry;
+			}
 		}
 	}
 }
