@@ -17,6 +17,9 @@ permissions:
     icparkour.reload:
         description: Gives permission to the reload command, reloads the configuration file
         default: op
+    icparkour.remove:
+        description: Gives permission to the icp remove command, used to remove parkour arenas
+        default: op
     icparkour.place:
         description: Gives permission to place BW-Parkour signs, used for arena interactions
         default: op
