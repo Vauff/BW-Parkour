@@ -162,7 +162,7 @@ public class ICP implements CommandExecutor
 						}
 						else
 						{
-							sender.sendMessage(ChatColor.RED + "You are missing a required argument! /icp enter <arenaname>");
+							player.sendMessage(ChatColor.RED + "You are missing a required argument! /icp enter <arenaname>");
 						}
 					}
 					else
@@ -240,30 +240,6 @@ public class ICP implements CommandExecutor
 						sender.sendMessage(ChatColor.DARK_RED + "You do not have access to that command.");
 					}
 
-					break;
-				case "remove":
-					if (sender.hasPermission("icparkour.remove"))
-					{
-						if (args.length == 2)
-						{
-							sender.sendMessage(ChatColor.RED + "You are missing a required argument! /icp remove <arenaname>");
-						}
-						else
-						{
-							main.getConfig().getConfigurationSection("arenas").set(args[2], null);
-							main.saveConfig();
-							sender.sendMessage(ChatColor.GREEN + "The parkour arena " + args[2] + " was successfully removed!");
-						}
-					}
-					else
-					{
-						sender.sendMessage(ChatColor.DARK_RED + "You do not have access to that command.");
-					}
-
-					break;
-				case "add":
-					break;
-				case "edit":
 					break;
 				default:
 					sender.sendMessage(ChatColor.RED + args[0] + " wasn't recognized as a valid option, please see /icp help");

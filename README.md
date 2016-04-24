@@ -6,26 +6,6 @@ A custom parkour arena Bukkit plugin designed for the IgneousCraft server. It is
 
 /icp reload - Reloads the configuration file
 
-/icp add \<arenaname> \<x,y,z coordinates> \<worldname> \<reward> [checkpointname:coordinates]... - Creates a parkour arena
-
-/icp remove \<arenaname> - Removes a parkour arena
-
-/icp edit name \<arenaname> \<newname>
-
-/icp edit coordinates \<arenaname> \<x,y,z coordinates>
-
-/icp edit world \<arenaname> \<worldname>
-
-/icp edit reward \<arenaname> \<reward>
-
-/icp edit checkpoints add \<arenaname> \<checkpointname> \<x,y,z coordinates>
-
-/icp edit checkpoints remove \<arenaname> \<checkpointname>
-
-/icp edit checkpoints edit name \<arenaname> \<checkpointname> \<newname>
-
-/icp edit checkpoints edit coordinates \<arenaname> \<checkpointname> \<x,y,z coordinates>
-
 /icp help - Gives you help with different command options
 
 /icp exit [arenaname] - Allows you to leave a parkour arena
@@ -53,8 +33,6 @@ icparkour.about - Gives permission to the about command, shows you plugin inform
 icparkour.help - Gives permission to the help command, gives you help with different command options
 
 icparkour.reload - Gives permission to the reload command, reloads the configuration file
-
-icparkour.remove - Gives permission to the remove command, used to remove parkour arenas
 
 icparkour.place - Gives permission to place BW-Parkour signs, used for arena interactions
 
