@@ -244,15 +244,15 @@ public class ICP implements CommandExecutor
 				case "remove":
 					if (sender.hasPermission("icparkour.remove"))
 					{
-						if (args.length == 2)
+						if (args.length > 1)
 						{
-							sender.sendMessage(ChatColor.RED + "You are missing a required argument! /icp remove <arenaname>");
+							main.getConfig().getConfigurationSection("arenas").set(args[1], null);
+							main.saveConfig();
+							sender.sendMessage(ChatColor.GREEN + "The parkour arena " + args[1] + " was successfully removed!");
 						}
 						else
 						{
-							main.getConfig().getConfigurationSection("arenas").set(args[2], null);
-							main.saveConfig();
-							sender.sendMessage(ChatColor.GREEN + "The parkour arena " + args[2] + " was successfully removed!");
+							sender.sendMessage(ChatColor.RED + "You are missing a required argument! /icp remove <arenaname>");
 						}
 					}
 					else
