@@ -1,7 +1,9 @@
 # IC-Parkour
+
 A custom parkour arena Bukkit plugin designed for the IgneousCraft server. It isn't hardcoded to IgneousCraft though so it should really work anywhere if set up properly.
 
-#Commands
+# Commands
+
 /icp about - Shows you plugin information
 
 /icp reload - Reloads the configuration file
@@ -14,7 +16,8 @@ A custom parkour arena Bukkit plugin designed for the IgneousCraft server. It is
 
 /icp tp - Lets you tp to your last checkpoint
 
-#Sign Options
+# Sign Options
+
 All signs should have "[Parkour]" on the first line. What should be on the rest is as follows.
 
 Checkpoint \<arenaname> \<checkpointname>
@@ -27,7 +30,8 @@ Exit \<arenaname>
 
 Finish \<arenaname>
 
-#Permissions
+# Permissions
+
 icparkour.about - Gives permission to the about command, shows you plugin information
 
 icparkour.help - Gives permission to the help command, gives you help with different command options
